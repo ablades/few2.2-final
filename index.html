@@ -153,8 +153,6 @@
 			}
 
 			.swatch {
-				/* Remove this rule when you set your colors! */
-				background-color: red !important;
 				margin: 1px;
 			}
 
@@ -270,18 +268,22 @@
         let str = ''
         for (let i = 0; i < cart.length; i += 1) {
           str += `<li>
+		  <div>
             <span>
               ${cart[i].name} 
 							<span>${cart[i].price}</span> each 
               x <span>${cart[i].qty}</span> = 
 							<span>${(cart[i].qty * cart[i].price).toFixed(2)}<span>
             </span>
+		</div>
+		<div>
             <span>
-              <button class="remove" data-name="${cart[i].name}">remove</button>
-              <button class="add-one" data-name="${cart[i].name}"> + </button>
+			  <input class="update" data-name="${cart[i].name}" type="number" value="${cart[i].qty}">
+			  <button class="add-one" data-name="${cart[i].name}"> + </button>
               <button class="remove-one" data-name="${cart[i].name}"> - </button>
-              <input class="update" data-name="${cart[i].name}" type="number" value="${cart[i].qty}">
+              <button class="remove" data-name="${cart[i].name}">remove</button>
             </span>
+		</div>
           </li>`
         }
         itemsList.innerHTML = str
